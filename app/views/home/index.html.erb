@@ -1,6 +1,6 @@
-<h1>Sistema Gerenciado de Emprestimo de Livros</h1>
-<p>Escolha uma das acões a seguir:</p>
+<h1>Livros recém postados</h1>
 <ul>
-	<li><%= link_to("Cadastro", new_user_path) %></li>
-	<li><%= link_to("Visualizar Livros", books_path) %></li>
+	<% @books.each do |book| %>
+	<li><%= link_to(book.complete_name, book)%></li>
+	<% end %>
 </ul>
