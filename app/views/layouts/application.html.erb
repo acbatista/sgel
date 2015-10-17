@@ -10,11 +10,11 @@
 <body>
 	<header>
 		<div id="header-wrap">
-			<h1><%= link_to("Sistema de Gerenciamento de Emprestimo de Livro",root_path) %></h1>
+			<h1><%= link_to("Sistema de Gerenciamento de Empréstimo de Livro",root_path) %></h1>
 			<nav>
 				<ul>
-					<li><%= link_to("Livros", books_path) %></li>
-					<li><%= link_to("Cadastro", new_user_path) %></li>
+					<li><%= link_to  t('layout.books'), books_path %></li>
+					<li><%= link_to t('layout.signup'), new_user_path %></li>
 				</ul>
 			</nav>
 		</div>

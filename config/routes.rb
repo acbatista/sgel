@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :books
-  resources :users
+  scope "(:locale)", locale: /en|pt\-BR/ do
+    resources :books
+    resources :users
+  end
 
+  get '/:locale' => 'home#index', locale: /en|pt\-BR/
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
