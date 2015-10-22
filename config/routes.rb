@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|pt/ do
-    resources :rooms do
-      resources :reviews, only: [:create, :update], module: :rooms
+    resources :books do
+      resources :reviews, only: [:create, :update], module: :books
     end
     resources :users
 
