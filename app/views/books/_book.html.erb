@@ -1,0 +1,21 @@
+<article class="book">
+    <h2><%= link_to book.title, book %></h2>
+    <span class="created">
+      <%= t '.owner_html',
+          owner: book.user.full_name,
+          when: l(book.created_at, format: :short)%>
+    </span>
+    <p>
+      <span class="location">
+        <%= link_to book.location, "https://maps,google.com/?q=#{book.location}", target: :blank %>
+      </span>
+    </p>
+    <p><%= book.description %></p>
+    <% if belongs_to_user(book) %>
+      <ul>
+        <li><%= link_to t('.edit'), edit_book_path(book) %></li>
+        <li><%= link_to t('.destroy'), book_path(book),
+            method: :delete, data: {confirm: t('dialogs.destroy')} %></li>
+      </ul>
+    <% end %>
+</article>
