@@ -1,21 +1,26 @@
 <article class="book">
-    <h2><%= link_to book.title, book %></h2>
-    <span class="created">
-      <%= t '.owner_html',
-          owner: book.user.full_name,
-          when: l(book.created_at, format: :short)%>
-    </span>
-    <p>
-      <span class="location">
-        <%= link_to book.location, "https://maps,google.com/?q=#{book.location}", target: :blank %>
-      </span>
-    </p>
-    <p><%= book.description %></p>
-    <% if belongs_to_user(book) %>
-      <ul>
-        <li><%= link_to t('.edit'), edit_book_path(book) %></li>
-        <li><%= link_to t('.destroy'), book_path(book),
-            method: :delete, data: {confirm: t('dialogs.destroy')} %></li>
-      </ul>
-    <% end %>
+  <h2>
+    <%= link_to highlight(book.title, @search_query), book.route %>
+  </h2>
+
+  <%= render partial: 'review', locals: {book: book} %>
+
+  <div class="book-description">
+    <%= link_to(
+          image_tag(book.thumb_url),
+          book.picture_url
+        ) if book.has_picture? %>
+
+    <p><%= highlight(book.description || '', @search_query) %></p>
+  </div>
+
+  <% if belongs_to_user(book) %>
+    <ul>
+      <li><%= link_to t('.edit'), edit_book_path(book.route) %></li>
+      <li><%= link_to t('.destroy'), book_path(book.route),
+        method: :delete, 
+        data: {confirm: t('dialogs.destroy')} %>
+      </li>
+    </ul>
+  <% end %>
 </article>

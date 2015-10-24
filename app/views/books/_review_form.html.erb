@@ -1,0 +1,15 @@
+<% if book.can_review? %>
+	<%= form_for book.review_route, remote: true do |f| %>
+			<% book.review_points.each do |point| %>
+				<%= f.radio_button :points, point %>
+				<%= f.label :points, value: point do %>
+					<%= fa_icon 'star' %>
+				<% end %>
+			<% end %>
+			<%= f.submit %>
+		<% end %>
+		<% else %>
+			<span class="login_required">
+				<%= t('.login_to_review') %>
+			</span>
+<% end %>	

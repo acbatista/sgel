@@ -8,7 +8,7 @@ namespace :app do
 		end
 		User.find_each do |user|
 			puts "Migrando usuário ##{user.id} #{user.full_name}"
-			if !user.valid? || user.attibute["password"].blank?
+			if !user.valid? || user.attributes["password"].blank?
 				puts "Usuário id #{user.id} inválido, pulando."
 				puts "Corrija-o manualmente e tente novamente. \n\n"
 				next
@@ -17,7 +17,7 @@ namespace :app do
 			unencripted_password = user.attributes["password"]
 
 			user.password = unencripted_password
-			user.password_confimation = unencripted_password
+			user.password_confirmation = unencripted_password
 			user.save!
 		end
 	end

@@ -1,0 +1,15 @@
+<section class="review">
+  <% if book.show_form? %>
+    <%= render partial: 'review_form', locals: {book: book} %>
+  <% else %>
+    <% book.stars.times do %>
+      <%= fa_icon 'star' %>
+    <% end %>
+
+    <% (book.review_points.max - book.stars).times do %>
+      <%= fa_icon 'star-o' %>
+    <% end %>
+
+    <%= t '.stats', count: book.total_reviews %>
+  <% end %>
+</section>

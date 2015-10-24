@@ -1,43 +1,50 @@
 class BooksController < ApplicationController
+  PER_PAGE = 10
+  
   before_action :set_book, only: [:show]
   before_action :set_users_book, only: [:edit, :update, :destroy]
-  before_action :require_authentication, only: [:new, :edit, :create, :update, :destroy]
+  before_action :require_authentication,
+    only: [:new, :edit, :create, :update, :destroy]
 
-  # GET /books
-  # GET /books.json
   def index
-    @books = Book.all
+    @search_query = params[:q]
+    books = Book.search(@search_query).
+      most_recent.
+      page(params[:page]).
+      per(PER_PAGE)
+    @books = BookCollectionPresenter.new(books, self)
   end
 
-  # GET /books/1
-  # GET /books/1.json
   def show
+    if user_signed_in?
+      @user_review = @book.reviews.
+        find_or_initialize_by(user_id: current_user.id)
+    end
   end
 
-  # GET /books/new
   def new
     @book = current_user.books.build
   end
 
-  # GET /books/1/edit
   def edit
   end
 
   def create
     @book = current_user.books.build(book_params)
-      if @book.save
-        redirect_to @book, notice: t('flash.notice.book_create')
-      else
-        render :new
-      end
+
+    if @book.save
+      redirect_to @book, notice: t('flash.notice.book_created')
+    else
+      render :new
+    end
   end
 
   def update
-      if @book.update(book_params)
-        redirect_to @book, notice: t('flash.notice.book_update')
-      else
-        render :edit
-      end
+    if @book.update(book_params)
+      redirect_to @book, notice: t('flash.notice.book_updated')
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -46,16 +53,16 @@ class BooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  def set_book
+    book_model = Book.friendly.find(params[:id])
+    @book = BookPresenter.new(book_model, self)
+  end
 
-    def set_users_book
-      @book = current_user.books.find(params[:id])
-    end
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def book_params
-      params.require(:book).permit(:title, :location, :description)
-    end
+  def set_users_book
+    @book = current_user.books.friendly.find(params[:id])
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :location, :description, :picture)
+  end
 end

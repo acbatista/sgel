@@ -35,6 +35,11 @@ gem "pry-meta"
 gem 'mailcatcher', '~> 0.6.1'
 gem 'thin'
 gem 'font-awesome-rails', '~> 4.4'
+gem 'maskedinput-rails'
+gem 'friendly_id'
+gem 'kaminari'
+gem 'carrierwave'
+gem 'rmagick', :require => 'RMagick'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

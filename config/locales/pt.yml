@@ -1,4 +1,10 @@
 pt:
+  views:
+    pagination:
+      first: "&laquo;Primeira"
+      last: "Útima;&raquo"
+      previous: "&rsaquo;Anterior"
+      next: "Próxima &rsaquo;"
   general:
     form_error: Há erros no formulário, por favor verifique.
   
@@ -87,6 +93,7 @@ pt:
     models:
       book: Livro
       user: Usuário
+      review: Avaliação
     attributes:
       user:
         bio: Biografia

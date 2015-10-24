@@ -11,6 +11,11 @@
 		<%=	error_tag @user, :full_name %>
 	</p>
 	<p>
+		<%= f.label :telefone %>
+		<%= f.text_field :telefone %>
+		<%=	error_tag @user, :telefone %>
+	</p>
+	<p>
 		<%= f.label :location %>
 		<%= f.text_field :location %>
 		<%=	error_tag @user, :location %>

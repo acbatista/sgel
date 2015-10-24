@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require maskedinput
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+jQuery(function($){
+
+   $("#user_telefone").mask("(99)9999-9999");
+
+});
