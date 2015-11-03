@@ -24,7 +24,8 @@ pt:
       signed_in: 'Login efetuado com sucesso!'
       signed_out: 'Logout efetuado com sucesso. Até logo!'
       already_logged_in: "Você já está logado."
-      book_create: 'Livro criado com sucesso!'
+      book_created: 'Livro criado com sucesso!'
+      book_updated: 'Livro atualizado com sucesso!'
 
   signup:
     confirm_email:
@@ -73,8 +74,8 @@ pt:
       owner_html: '&mdash; %{owner} (%{when})'
       edit: 'Editar'
       destroy: 'Remover'
-      review_form:
-        login_to_review: 'Faça o login para avaliar Livros'
+    review_form:
+      login_to_review: 'Faça o login para avaliar Livros'
       review:
         stats:
           zero: 'Não há avaliações'
@@ -88,6 +89,7 @@ pt:
 
   links:
     back: Voltar
+    edit: Editar
 
   activerecord:
     models:
@@ -104,9 +106,9 @@ pt:
         password_confirmation: Confirme sua senha
       book:
         description: Descrição
-        location: Localização
+        author: Autor(a)
         title: Título
-        picture: Foto
+        picture: Imagem
 
   activemodel:
     attributes:
@@ -115,7 +117,7 @@ pt:
         password: Senha
     errors:
       messages:
-        invalid_login: 'Usuário ou senha inválidos'
+        invalid_login: 'Usuário ou senha inválidos e ou Usuário atenticado.'
 
   helpers:
     submit:

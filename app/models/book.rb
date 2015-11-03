@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
 	belongs_to :user
 
 	validates_presence_of :title
+	validates_presence_of :description
 	validates_presence_of :slug
 
 	mount_uploader :picture, PictureUploader
@@ -12,7 +13,7 @@ class Book < ActiveRecord::Base
 
 	def self.search(query)
     if query.present?
-      where(['location LIKE :query OR
+      where(['author LIKE :query OR
               title LIKE :query OR
               description LIKE :query', query: "%#{query}%"])
     else
@@ -25,6 +26,6 @@ class Book < ActiveRecord::Base
 	end
 
 	def complete_name
-		"#{title}, #{location}"
+		"#{title}, #{author}"
 	end
 end

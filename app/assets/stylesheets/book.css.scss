@@ -90,13 +90,13 @@ mark {
   color: inherit;
   background-color: gold;
 }
-.book-description {
+.book-author {
   p, img {
     float: left;
     margin-right: 10px;
   }
 }
-.book-description + ul {
+.book-author + ul {
   padding-top: 10px;
   clear: both;
 }

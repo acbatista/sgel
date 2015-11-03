@@ -19,6 +19,6 @@
 
 jQuery(function($){
 
-   $("#user_telefone").mask("(99)9999-9999");
+   $("#user_telefone").mask("(99) 99999999");
 
 });

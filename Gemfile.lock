@@ -119,6 +119,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    railroady (1.4.1)
     rails (4.2.4)
       actionmailer (= 4.2.4)
       actionpack (= 4.2.4)
@@ -209,6 +210,7 @@ DEPENDENCIES
   maskedinput-rails
   mysql2 (~> 0.3.18)
   pry-meta
+  railroady
   rails (= 4.2.4)
   rmagick
   sass-rails (~> 5.0)

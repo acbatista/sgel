@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   PER_PAGE = 10
-  
+
   before_action :set_book, only: [:show]
   before_action :set_users_book, only: [:edit, :update, :destroy]
   before_action :require_authentication,
@@ -63,6 +63,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :location, :description, :picture)
+    params.require(:book).permit(:title, :author, :description, :picture)
   end
 end
