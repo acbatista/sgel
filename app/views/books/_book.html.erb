@@ -16,11 +16,13 @@
 
   <% if belongs_to_user(book) %>
     <ul>
-      <li><%= link_to t('.edit'), edit_book_path(book.route) %></li>
-      <li><%= link_to t('.destroy'), book_path(book.route),
-        method: :delete, 
+      <li class="btn btn-primary"><%= link_to t('.edit'), edit_book_path(book.route) %></li>
+      <li class="btn btn-primary"><%= link_to t('.destroy'), book_path(book.route),
+        method: :delete,
         data: {confirm: t('dialogs.destroy')} %>
       </li>
     </ul>
+    <% else %>
+      <li type="button" class="btn btn-primary"><%= link_to t('.loan'), edit_book_path(book.route) %></li>
   <% end %>
 </article>

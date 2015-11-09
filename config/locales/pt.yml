@@ -7,7 +7,7 @@ pt:
       next: "Próxima &rsaquo;"
   general:
     form_error: Há erros no formulário, por favor verifique.
-  
+
   layout:
     books: Livros
     signup: Cadastro
@@ -36,7 +36,7 @@ pt:
           O SGEL é o lugar ideal para você alugar aquele livro
           sobrando na sua casa e ainda conhecer gente do mundo inteiro.
 
-      confirm_link_html: 'Para você começar a usar o site, acesse o 
+      confirm_link_html: 'Para você começar a usar o site, acesse o
               link: %{link}'
       thanks_html: 'Obrigado por se cadastrar no %{link}.'
 
@@ -45,7 +45,7 @@ pt:
 
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
-    
+
   users:
     new:
       title: Cadastro
@@ -74,6 +74,7 @@ pt:
       owner_html: '&mdash; %{owner} (%{when})'
       edit: 'Editar'
       destroy: 'Remover'
+      loan: 'Solicitar empréstimo'
     review_form:
       login_to_review: 'Faça o login para avaliar Livros'
       review:
