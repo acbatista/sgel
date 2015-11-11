@@ -22,7 +22,7 @@
         data: {confirm: t('dialogs.destroy')} %>
       </li>
     </ul>
-    <% else %>
+    <% elsif user_signed_in?%>
       <li type="button" class="btn btn-primary"><%= link_to t('.loan'), edit_book_path(book.route) %></li>
   <% end %>
 </article>
